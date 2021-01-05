@@ -36,6 +36,7 @@
 
 
 # ---------------- Second Try (optimal solution) -------------------
+# O(N)
 def replaceSpaces(string, true_length):
     string = list(string)
 
