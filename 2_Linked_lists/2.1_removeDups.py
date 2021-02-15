@@ -61,23 +61,23 @@ class LinkedList:
 def removeDuplicates(linked_list):
     if linked_list.head == None:
         return
-        
-    char_dict = {}
-    current = linked_list.head
-    char_dict[current.value] = 1
+    
+    head = linked_list.head
+    current = head
+    nodes = set()
+    nodes.add(head.value)
 
-    while(current.next != None):
-        if current.next.value not in char_dict:
-            char_dict[current.next.value] = 0
-
-        char_dict[current.next.value] += 1
-        if char_dict[current.next.value] > 1:
+    while (current.next != None):
+        if (current.next.value in nodes):
             current.next = current.next.next
             continue
-            
+        else:
+            nodes.add(current.next.value)
         current = current.next
+        linked_list.printList()
     
     return linked_list
+    
 
 if __name__ == "__main__":
     linked_list = LinkedList()
